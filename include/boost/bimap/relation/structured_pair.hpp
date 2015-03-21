@@ -57,6 +57,8 @@ class normal_storage :
 {
     typedef symmetrical_base<FirstType,SecondType> base_;
 
+    normal_storage& operator=(const normal_storage&);
+
     public:
 
     typedef normal_storage storage_;
@@ -93,6 +95,8 @@ class mirror_storage :
     public symmetrical_base<SecondType,FirstType>
 {
     typedef symmetrical_base<SecondType,FirstType> base_;
+
+    mirror_storage& operator=(const mirror_storage&);
 
     public:
 
@@ -212,7 +216,9 @@ class pair_info_hook<TA,TB,::boost::mpl::na,Layout> :
 {
     typedef BOOST_DEDUCED_TYPENAME ::boost::bimaps::relation::detail::storage_finder<TA,TB,Layout>::type base_;
 
-    public:
+    pair_info_hook& operator=(const pair_info_hook&);
+
+   public:
     typedef ::boost::mpl::na info_type;
     typedef member_at::info info_tag;
 

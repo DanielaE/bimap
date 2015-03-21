@@ -84,6 +84,8 @@ struct data_with_functor_bag :
     {
         return *(static_cast<Functor const *>(this));
     }
+private:
+    data_with_functor_bag& operator=(const data_with_functor_bag&);
 };
 
 } // namespace detail

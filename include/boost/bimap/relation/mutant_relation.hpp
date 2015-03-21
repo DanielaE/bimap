@@ -42,6 +42,11 @@
 #include <boost/bimap/relation/symmetrical_base.hpp>
 #include <boost/bimap/relation/support/get.hpp>
 
+#ifdef BOOST_MSVC
+# pragma warning(push)
+# pragma warning(disable: 4512) // assignment operator could not be generated
+#endif
+
 namespace boost {
 namespace bimaps {
 namespace relation {
@@ -470,6 +475,9 @@ mutant_relation<TA,TB,::boost::mpl::na,force_mutable>
 } // namespace bimaps
 } // namespace boost
 
+#ifdef BOOST_MSVC
+# pragma warning(pop)
+#endif
 
 #endif // BOOST_BIMAP_RELATION_MUTANT_RELATION_HPP
 

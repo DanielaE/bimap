@@ -27,6 +27,11 @@
 #include <boost/bimap/container_adaptor/container_adaptor.hpp>
 #include <boost/call_traits.hpp>
 
+#ifdef BOOST_MSVC
+# pragma warning(push)
+# pragma warning(disable: 4267) // narrowing conversion
+#endif
+
 namespace boost {
 namespace bimaps {
 namespace container_adaptor {
@@ -280,6 +285,9 @@ class associative_container_adaptor :
 } // namespace bimaps
 } // namespace boost
 
+#ifdef BOOST_MSVC
+# pragma warning(pop)
+#endif
 
 #endif // BOOST_BIMAP_CONTAINER_ADAPTOR_ASSOCIATIVE_CONTAINER_ADAPTOR_HPP
 
