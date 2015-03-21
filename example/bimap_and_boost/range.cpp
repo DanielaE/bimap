@@ -25,6 +25,10 @@
 #include <boost/range/functions.hpp>
 #include <boost/range/metafunctions.hpp>
 
+#ifdef BOOST_MSVC
+# pragma warning(disable: 4512) // assignment operator could not be generated
+#endif
+
 //[ code_bimap_and_boost_range_functions
 
 template< class ForwardReadableRange, class UnaryFunctor >

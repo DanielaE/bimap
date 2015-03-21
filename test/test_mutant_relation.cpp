@@ -44,6 +44,10 @@
 // Bimap Test Utilities
 #include "test_relation.hpp"
 
+#ifdef BOOST_MSVC
+# pragma warning(disable: 4512) // assignment operator could not be generated
+#endif
+
 BOOST_BIMAP_TEST_STATIC_FUNCTION( untagged_static_test )
 {
     using namespace boost::bimaps::relation::member_at;
