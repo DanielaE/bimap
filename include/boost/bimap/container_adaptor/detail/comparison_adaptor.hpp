@@ -33,7 +33,7 @@ A simple comparison adaptor.
                                                                                     **/
 
 template < class Compare, class NewType, class Converter >
-struct comparison_adaptor : std::binary_function<NewType,NewType,bool>
+struct comparison_adaptor
 {
     comparison_adaptor( const Compare & comp, const Converter & conv)
         : compare(comp), converter(conv) {}
@@ -50,7 +50,7 @@ struct comparison_adaptor : std::binary_function<NewType,NewType,bool>
 };
 
 template < class Compare, class NewType, class Converter >
-struct compatible_comparison_adaptor : std::binary_function<NewType,NewType,bool>
+struct compatible_comparison_adaptor
 {
     compatible_comparison_adaptor( const Compare & comp, const Converter & conv)
         : compare(comp), converter(conv) {}
@@ -75,7 +75,7 @@ A simple unary check adaptor.
                                                                                     **/
 
 template < class Compare, class NewType, class Converter >
-struct unary_check_adaptor : std::unary_function<NewType,bool>
+struct unary_check_adaptor
 {
     unary_check_adaptor( const Compare & comp, const Converter & conv ) :
         compare(comp), converter(conv) {}
