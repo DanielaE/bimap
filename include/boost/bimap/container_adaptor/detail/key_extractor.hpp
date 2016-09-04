@@ -29,7 +29,6 @@ namespace detail {
 
 template < class T >
 struct key_from_pair_extractor 
-    : std::unary_function< T, BOOST_DEDUCED_TYPENAME T::first_type >
 {
     bool operator()( const T & p ) { return p.first; }
 };
