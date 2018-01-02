@@ -73,6 +73,8 @@ See also bimap, bimap_core.
 template< class AP1, class AP2, class AP3 >
 struct manage_additional_parameters
 {
+    struct none {};
+
     // (1) manage_additional_parameters<
     //         not_specified,not_specified,not_specified>
     //
@@ -83,7 +85,7 @@ struct manage_additional_parameters
     struct case_NNN
     {
         typedef left_based set_type_of_relation;
-        typedef std::allocator<void> allocator;
+        typedef std::allocator<none> allocator;
         typedef ::boost::mpl::na additional_info;
     };
 
@@ -110,7 +112,7 @@ struct manage_additional_parameters
     struct case_SNN
     {
         typedef AP1 set_type_of_relation;
-        typedef std::allocator<void> allocator;
+        typedef std::allocator<none> allocator;
         typedef ::boost::mpl::na additional_info;
     };
 
@@ -137,7 +139,7 @@ struct manage_additional_parameters
     struct case_HNN
     {
         typedef left_based set_type_of_relation;
-        typedef std::allocator<void> allocator;
+        typedef std::allocator<none> allocator;
         typedef BOOST_DEDUCED_TYPENAME AP1::value_type additional_info;
     };
 
@@ -151,7 +153,7 @@ struct manage_additional_parameters
     struct case_SHN
     {
         typedef AP1 set_type_of_relation;
-        typedef std::allocator<void> allocator;
+        typedef std::allocator<none> allocator;
         typedef BOOST_DEDUCED_TYPENAME AP2::value_type additional_info;
     };
 
