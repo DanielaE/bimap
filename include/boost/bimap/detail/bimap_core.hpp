@@ -398,14 +398,22 @@ class bimap_core
     // Define the core using compute_index_type to translate the
     // set type to an multi-index specification
     // --------------------------------------------------------------------
+
+#ifdef BOOST_NO_CXX11_ALLOCATOR
+    typedef BOOST_DEDUCED_TYPENAME parameters::allocator::
+            BOOST_NESTED_TEMPLATE rebind<relation>::other relation_allocator;
+#else
+    typedef typename std::allocator_traits<typename parameters::allocator>::
+            template rebind_alloc<relation> relation_allocator;
+#endif
+
     public:
 
     typedef multi_index::multi_index_container
     <
         relation,
         core_indices,
-        BOOST_DEDUCED_TYPENAME parameters::allocator::
-            BOOST_NESTED_TEMPLATE rebind<relation>::other
+        relation_allocator
 
     > core_type;
 
